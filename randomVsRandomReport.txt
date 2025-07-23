@@ -1,0 +1,43 @@
+RandomVSRandom Report
+
+1) What is your conclusion, does the first or
+second player have some advantage, at least for a random strategy?
+
+The second player seems to have a slight edge (about 5%) over the first player.
+
+2) Watch https://www.youtube.com/watch?v=Iq9DzN6mvYA
+
+3) Briefly write your thoughts on the above video below:
+
+Analytically computing the validity of the correlation presented in the data
+could be overly complicated. Sometimes simply using brute force to simulate them and
+calculating the likelihood of the original correlation is easier and more intuitive.
+
+4) H0 is that the second player is no more likely to win the game and the second player
+won more frequently than the first by pure chance.
+
+5) Ha is that the second player is that the second player is more likely to win.
+
+6) Choose one of the following and delete the other:
+   My experimental results do not support H0, so they support Ha
+
+7) As in the video, use either math or code (add a Java Class) to argue for or against H0
+
+Through direct simulation, I argue that my experimental results support the Ha.
+I simulated game of othello 10000 times with both players playing random moves.
+Whenever there was a draw, I made them rematch until there was a winner to simplify the calculation.
+The calculated edge P2 had over was approximately 5% after 10000 trials.
+
+Recall that H0 is that the game is fair, or that P2 has no edge over P2 (equivalently, P2Win% - P1Win% > 0%).
+I then ran a simulation of 10000*1000 coin flips (which have probability 0.5 of p1 or p2),
+and for every 1000 flips, I incremented the Ha counter if P2Win% - P1Win% >= 5%.
+The simulation concluded that the probability given the H0 of P2 having an edge of over 5% was 5.77%,
+which I believe is quite unlikely. Moreover, this is similar to the theoretical value calculated when using
+a binomial distribution (p=0.5, n=1000), P(X>=525) = 6.06%.
+Hence, the game of othello favors the second player.
+
+
+References: 
+https://www.thoughtco.com/null-hypothesis-vs-alternative-hypothesis-3126413
+
+p2>p1 <=> (p2NumGamesWon)/trials > (p1NumGamesWon)/trials <=> p2NumGamesWon > P1NumGamesWon
